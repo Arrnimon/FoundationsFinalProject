@@ -1,4 +1,4 @@
-from RBtree1 import Node
+from RBtree1 import Node, RBtree
 from pretty_printer import PrettyPrinter
 
 
@@ -22,6 +22,21 @@ def smoke_test():
     print("--- Pretty print (no color) ---")
     PrettyPrinter.pretty_print(root, use_color=False)
 
+def TestOne():
+    ##inserts the values automatically using the insert function in RBtree1
+
+    tree = RBtree()
+    values_to_insert = [20, 10, 30, 5, 15, 25, 35]
+    for value in values_to_insert:
+        tree.insertInTree(value)
+    
+    print("--- Pretty print of automatically inserted tree (no color) ---")
+    PrettyPrinter.pretty_print(tree, use_color=True)
+
+
+
+
 
 if __name__ == '__main__':
-    smoke_test()
+    TestOne()
+    
