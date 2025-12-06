@@ -34,9 +34,67 @@ def TestOne():
     PrettyPrinter.pretty_print(tree, use_color=True)
 
 
+def TestTwo():
+    tree = RBtree()
+    values_to_insert = [7, 3, 18, 10, 22, 8]
+    for value in values_to_insert:
+        tree.insertInTree(value)
+    
+    print("--- Pretty print of second automatically inserted tree (with color) ---")
+    PrettyPrinter.pretty_print(tree, use_color=True)
 
 
+def TestDeleteOne():
+    tree = RBtree()
+    values_to_insert = [7, 3, 18, 10, 22, 8]
+    for value in values_to_insert:
+        tree.insertInTree(value)
+
+    print("--- Pretty print of second automatically inserted tree (with color) ---")
+    PrettyPrinter.pretty_print(tree, use_color=True)
+
+    tree.deleteFromTree(18)
+
+    print("--- Pretty print after deleting 18 (with color) ---")
+    PrettyPrinter.pretty_print(tree, use_color=True)
+
+
+
+def TestSearch():
+    tree = RBtree()
+    values_to_insert = [7, 3, 18, 10, 22, 8]
+    for value in values_to_insert:
+        tree.insertInTree(value)
+
+    value = tree.searchTree(10)
+
+    if value is True:
+        print("Value 10 found in the tree.")
+    else:
+        print("Value 10 not found in the tree.")
+        
+def TestEmptyTree():
+    tree = RBtree()
+    print("--- Pretty print of empty tree ---")
+    PrettyPrinter.pretty_print(tree, use_color=False)
+
+def TestLargeSet():
+    import random
+
+    tree = RBtree()
+    values_to_insert = random.sample(range(1, 101), 20)  # Insert 20 unique values from 1 to 100
+    for value in values_to_insert:
+        tree.insertInTree(value)
+    
+    print("--- Pretty print of large randomly inserted tree (with color) ---")
+    PrettyPrinter.pretty_print(tree, use_color=True)
 
 if __name__ == '__main__':
-    TestOne()
-    
+    #TestOne()
+    #TestTwo()
+    #TestLargeSet()
+    #TestDeleteOne()
+    TestSearch()
+
+
+

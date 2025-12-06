@@ -66,6 +66,7 @@ class PrettyPrinter:
             left_lines = rec(left) if left is not None else []
             right_lines = rec(right) if right is not None else []
 
+            # Print right subtree first so the right sibling appears above the left
             lines: List[str] = [label]
 
             def add_side(prefix: str, lines_list: List[str], is_last_side: bool = False) -> None:
@@ -79,8 +80,9 @@ class PrettyPrinter:
                     else:
                         lines.append(prefix + ("   " if is_last_side else "│  ") + l)
 
-            add_side("", left_lines, is_last_side=(len(right_lines) == 0))
-            add_side("", right_lines, is_last_side=True)
+            # Right first (top sibling), then left (bottom sibling)
+            add_side("", right_lines, is_last_side=(len(left_lines) == 0))
+            add_side("", left_lines, is_last_side=True)
 
             return lines
 
