@@ -22,3 +22,4 @@ Notes
   `value`, `left`, `right`, and `color` attributes.
 - If you want full red-black behavior (rotations, rebalancing), I can add
   `insert_fixup` and rotate operations — let me know.
+
